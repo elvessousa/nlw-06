@@ -1,11 +1,16 @@
-import { Button } from './components/Button';
+import { AuthContextProvider } from './contexts/AuthContext';
+import { Home } from './pages/Home';
+import { NewRoom } from './pages/NewRoom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-      <Button>Teum</Button>
-    </div>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Route path="/" component={Home} exact />
+        <Route path="/rooms/new" component={NewRoom} />
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 }
 

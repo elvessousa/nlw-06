@@ -1,0 +1,27 @@
+:root {
+  --back: #f8f8f8;
+  --text: #29292e;
+  --accent-back: #835afd;
+  --bright-back: #fff;
+  --bright-text: #fff;
+  --border: #a8a8b3;
+  --muted-text: #737380;
+  --red: #ea4335;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--back);
+  color: var(--text);
+}
+
+body,
+input,
+button,
+textarea {
+  font: 400 16px 'Noto Sans', sans-serif;
+}
