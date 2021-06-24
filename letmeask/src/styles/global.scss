@@ -29,3 +29,22 @@ button,
 textarea {
   font: 400 16px 'Noto Sans', sans-serif;
 }
+
+.lang-selector {
+  background-color: var(--accent-back);
+  border-radius: 8px;
+  border: 0;
+  bottom: 1em;
+  color: var(--bright-text);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 1em;
+  position: absolute;
+  right: 1em;
+  text-transform: uppercase;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}

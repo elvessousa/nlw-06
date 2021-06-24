@@ -1,4 +1,5 @@
 import copyImg from '../assets/images/copy.svg';
+import useTranslation from '../hooks/useTranslation';
 import '../styles/room-code.scss';
 
 type RoomCodeProps = {
@@ -6,6 +7,8 @@ type RoomCodeProps = {
 };
 
 export function RoomCode({ code }: RoomCodeProps) {
+  const { t } = useTranslation();
+
   function copyCodeToClipboard() {
     if (navigator) {
       navigator.clipboard.writeText(code);
@@ -17,7 +20,9 @@ export function RoomCode({ code }: RoomCodeProps) {
       <div>
         <img src={copyImg} alt="Copiar código" />
       </div>
-      <span>Sala {code}</span>
+      <span>
+        {t('room')} {code}
+      </span>
     </button>
   );
 }

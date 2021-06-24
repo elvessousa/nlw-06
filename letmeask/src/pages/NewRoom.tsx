@@ -3,14 +3,18 @@ import { FormEvent, useState } from 'react';
 
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
+import { LanguageSelector } from '../components/LanguageSelector';
+
 import { database } from '../services/firebase';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
 import '../styles/auth.scss';
+import useTranslation from '../hooks/useTranslation';
 
 export function NewRoom() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const history = useHistory();
   const [newRoom, setNewRoom] = useState('');
@@ -34,25 +38,26 @@ export function NewRoom() {
   return (
     <div id="page-auth">
       <aside>
-        <img src={illustrationImg} alt="Ilustração: perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire dúvidas de sua audiência em tempo real</p>
+        <LanguageSelector />
+        <img src={illustrationImg} alt="Q&A" />
+        <strong>{t('hometitle')}</strong>
+        <p>{t('homesub')}</p>
       </aside>
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
-          <h2>Criar uma nova sala</h2>
+          <h2>{t('createARoom')}</h2>
           <form onSubmit={handleCreateRoom}>
             <input
               type="text"
-              placeholder="Nome da sala"
+              placeholder={t('roomName')}
               onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
-            <Button type="submit">Criar sala</Button>
+            <Button type="submit">{t('createRoom')}</Button>
           </form>
           <p>
-            Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link>.
+            {t('newRoomPhrase')} <Link to="/">{t('clickHere')}</Link>.
           </p>
         </div>
       </main>

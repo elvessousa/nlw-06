@@ -1,12 +1,14 @@
+import { FormEvent, useEffect, useState } from 'react';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
+import { LanguageSelector } from '../components/LanguageSelector';
 
 import logoImg from '../assets/images/logo.svg';
 import '../styles/room.scss';
 import { useParams } from 'react-router-dom';
-import { FormEvent, useEffect, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
+import useTranslation from '../hooks/useTranslation';
 
 type FirebaseQuestions = Record<
   string,
@@ -37,6 +39,7 @@ type RoomParams = {
 };
 
 export function Room() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const params = useParams<RoomParams>();
   const roomID = params.id;
@@ -104,13 +107,20 @@ export function Room() {
 
       <main className="content">
         <div className="room-title">
-          <h1>Sala: {title}</h1>
-          {questions.length > 0 && <span>{questions.length} perguntas</span>}
+          <h1>
+            {t('room')}: {title}
+          </h1>
+          {questions.length > 0 && (
+            <span>
+              {questions.length} {t('question')}
+              {questions.length === 1 ? '' : 's'}
+            </span>
+          )}
         </div>
 
         <form onSubmit={handleSendQuestion}>
           <textarea
-            placeholder="O que deseja perguntar?"
+            placeholder={t('questionPhrase')}
             onChange={(event) => setNewQuestion(event.target.value)}
             value={newQuestion}
           />
@@ -123,17 +133,18 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>.
+                {t('questionInstruction')}, <button>{t('signIn')}</button>.
               </span>
             )}
             <Button type="submit" disabled={!user}>
-              Enviar pergunta
+              {t('send')}
             </Button>
           </footer>
         </form>
 
         {JSON.stringify(questions)}
       </main>
+      <LanguageSelector />
     </div>
   );
 }

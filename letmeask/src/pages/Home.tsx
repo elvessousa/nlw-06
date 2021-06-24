@@ -1,18 +1,21 @@
+import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
+import { LanguageSelector } from '../components/LanguageSelector';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleImg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
-import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
+import useTranslation from '../hooks/useTranslation';
 
 export function Home() {
   const history = useHistory();
+  const { t } = useTranslation();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
 
@@ -43,26 +46,27 @@ export function Home() {
   return (
     <div id="page-auth">
       <aside>
+        <LanguageSelector />
         <img src={illustrationImg} alt="Ilustração: perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire dúvidas de sua audiência em tempo real</p>
+        <strong>{t('hometitle')}</strong>
+        <p>{t('homesub')}</p>
       </aside>
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button className="create-room" onClick={handleCreateRoom}>
-            <img src={googleImg} alt="Logo do Google" />
-            Crie sua sala com o Google
+            <img src={googleImg} alt="Google" />
+            {t('gbutton')}
           </button>
-          <div className="separator">ou entre em uma sala</div>
+          <div className="separator">{t('separator')}</div>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
-              placeholder="Digite o código da sala"
+              placeholder={t('roomInput')}
               onChange={(event) => setRoomCode(event.target.value)}
               value={roomCode}
             />
-            <Button type="submit">Entrar na sala</Button>
+            <Button type="submit">{t('enter')}</Button>
           </form>
         </div>
       </main>
