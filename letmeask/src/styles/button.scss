@@ -21,6 +21,12 @@
     cursor: not-allowed;
   }
 
+  &.outlined {
+    background: var(--bright-back);
+    border: 1px solid var(--accent-back);
+    color: var(--accent-back);
+  }
+
   img {
     margin-right: 8px;
   }
