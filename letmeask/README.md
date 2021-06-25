@@ -4,7 +4,7 @@
 
 #### Next Level Week #6
 
-![Screenshot](../.github/letmeask.png)
+![Screenshot](./github/letmeask.png)
 
 Visitar a versão on-line: https://letmeask-d771d.web.app/
 
