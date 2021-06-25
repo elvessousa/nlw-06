@@ -1,11 +1,25 @@
 .question {
   background-color: var(--input-back);
   border-radius: 8px;
-  box-shadow: 0 2px 120x var(--shadow);
+  box-shadow: 0 2px 12px var(--shadow);
   padding: 24px;
 
   & + .question {
     margin-top: 8px;
+  }
+
+  &.highlighted {
+    background: var(--highlighted);
+    border: 1px solid var(--accent-back);
+
+    footer .user-info span {
+      color: var(--dark-text);
+      font-weight: bold;
+    }
+  }
+
+  &.answered {
+    background-color: var(--answered);
   }
 
   p {
@@ -17,6 +31,11 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
+
+    > div {
+      display: flex;
+      gap: 16px;
+    }
 
     .user-info {
       display: flex;

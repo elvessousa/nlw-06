@@ -4,14 +4,14 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
 import { LanguageSelector } from '../components/LanguageSelector';
+import { database } from '../services/firebase';
+import useTranslation from '../hooks/useTranslation';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleImg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
-import { database } from '../services/firebase';
-import useTranslation from '../hooks/useTranslation';
 
 export function Home() {
   const history = useHistory();
@@ -52,7 +52,7 @@ export function Home() {
     <div id="page-auth">
       <aside>
         <LanguageSelector />
-        <img src={illustrationImg} alt="Ilustração: perguntas e respostas" />
+        <img src={illustrationImg} alt={t('illustration')} />
         <strong>{t('hometitle')}</strong>
         <p>{t('homesub')}</p>
       </aside>
