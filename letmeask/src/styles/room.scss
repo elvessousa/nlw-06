@@ -9,6 +9,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
 
       > img {
         max-height: 45px;
@@ -69,6 +70,7 @@
       justify-content: space-between;
       align-items: center;
       margin-top: 16px;
+      gap: 16px;
 
       .user-info {
         display: flex;
@@ -107,6 +109,16 @@
 
     .question-list {
       margin-top: 32px;
+    }
+  }
+}
+@media screen and (min-width: 15em) and (max-width: 47em) {
+  #page-room {
+    header {
+      .content,
+      div {
+        flex-direction: column;
+      }
     }
   }
 }

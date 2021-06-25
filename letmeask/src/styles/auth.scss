@@ -17,7 +17,7 @@
     }
 
     strong {
-      font: 700 36px 'Nunito', sans-serif;
+      font: 700 clamp(10vw, 2vw, 36px) 'Nunito', sans-serif;
       line-height: 42px;
       margin-top: 16px;
     }
@@ -54,6 +54,7 @@
       font-family: 'Nunito', sans-serif;
       font-size: 24px;
       margin: 64px 0 24px;
+      line-height: 1;
     }
 
     form {
@@ -128,6 +129,24 @@
       flex: 1;
       height: 1px;
       margin-left: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 15em) and (max-width: 47em) {
+  #page-auth {
+    flex-direction: column;
+
+    aside {
+      padding: 2em;
+    }
+
+    .main-content {
+      padding: 2em 1em;
+    }
+    .create-room {
+      padding: 1em;
+      font-size: 12px;
     }
   }
 }

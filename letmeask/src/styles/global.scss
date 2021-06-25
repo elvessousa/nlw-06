@@ -1,7 +1,7 @@
 :root {
   --back: #f8f8f8;
   --text: #29292e;
-  --accent-back: #835afd;
+  --accent-back: #007899;
   --highlighted: #f4f0ff;
   --answered: #dbdcdd;
   --input-back: #fefefe;
@@ -14,6 +14,7 @@
   --red: #ea4335;
   --shadow: rgba(0, 0, 0, 0.04);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -48,5 +49,11 @@ textarea {
 
   &:hover {
     filter: brightness(0.9);
+  }
+}
+
+@media screen and (min-width: 15em) and (max-width: 47em) {
+  main {
+    padding: 20px;
   }
 }

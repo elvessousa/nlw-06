@@ -80,3 +80,13 @@
     }
   }
 }
+@media screen and (min-width: 15em) and (max-width: 47em) {
+  .question {
+    footer {
+      border-top: 1px solid var(--bright-border);
+      padding: 8px;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
