@@ -28,8 +28,10 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias abaixo:
 ## Milha extra
 
 - Variáveis no SCSS
+- Cor diferente
+- Layout responsivo
 - Fontes diferentes
-- Uso do Sass ao invés do Node-Sass
+- Uso do Sass ao invés do Node-Sass nas dependências
 - Contexto de idioma para tradução da interface
 - Seletor de idioma na interface
 
