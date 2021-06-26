@@ -17,7 +17,9 @@
     }
 
     strong {
-      font: 700 clamp(10vw, 2vw, 36px) 'Nunito', sans-serif;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(3vw, 36px, 10vw);
+      font-weight: bold;
       line-height: 42px;
       margin-top: 16px;
     }
